@@ -14,6 +14,7 @@ type TProps = {
   langCode?: string;
   hideV3Badge?: boolean;
   children: React.ReactNode | React.ReactNodeArray;
+  baseUrl: string;
 };
 type TState = {
   loaded: boolean;
@@ -36,7 +37,8 @@ class ReCaptchaProvider extends React.Component<TProps, TState> {
     const {
       siteKeyV3 = 'explicit',
       langCode = '',
-      hideV3Badge = false
+      hideV3Badge = false,
+      baseUrl = 'https://www.google.com/recaptcha'
     } = this.props;
     const scriptDataId: string = 'react-recaptcha-v3-v2-script';
     // avoid loading again if previously loaded...
@@ -49,7 +51,7 @@ class ReCaptchaProvider extends React.Component<TProps, TState> {
       script.setAttribute('data-id', scriptDataId);
       script.setAttribute(
         'src',
-        `https://www.google.com/recaptcha/api.js?render=${siteKeyV3}&onload=GoogleReCaptcha_onload&hl=${langCode}`
+        `${baseUrl}/api.js?render=${siteKeyV3}&onload=GoogleReCaptcha_onload&hl=${langCode}`
       );
       script.setAttribute('async', 'true');
       script.setAttribute('defer', 'true');

@@ -1,5 +1,5 @@
 {
-  "name": "react-recaptcha-x",
+  "name": "@fwen/react-recaptcha-x",
   "version": "1.1.13",
   "description": "a React component for Google's reCAPTCHA v3 and v2 (checkbox) component",
   "main": "./dist/index.js",
@@ -10,7 +10,7 @@
     "prettier": "npx prettier --check 'src/**/*.ts?(x)'",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "build": "npm run build:clean && npm run build:types && npm run build:js && npm run build:tscpaths",
-    "build:clean": "rm dist/* -rf",
+    "build:clean": "rm -rf dist/*",
     "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly",
     "build:js": "webpack --config ./webpack.config.js --progress",
     "build:tscpaths": "tsconfig-replace-paths -p tsconfig.build.json -s ./src -o ./dist",
